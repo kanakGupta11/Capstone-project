@@ -16,6 +16,24 @@ public class Payment {
 	private Date dateOfPayment;
 	private Integer planId;
 	
+	public Payment() {
+		
+	}
+	
+	public Payment(Integer customerId, String customerName, Integer planId) {
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.planId = planId;
+	}
+	
+	
+	public Integer getPaymentId() {
+		return paymentId;
+	}
+	public void setPaymentId(Integer paymentId) {
+		this.paymentId = paymentId;
+	}
+	
 	public Integer getCustomerId() {
 		return customerId;
 	}
