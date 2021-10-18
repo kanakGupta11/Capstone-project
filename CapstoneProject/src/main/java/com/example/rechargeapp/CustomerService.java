@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomerService {
 	@Autowired
-	CustomerRepository repository;
+	CustomerRepository customerRepository;
 	
 	public void save(Customer customer) {
-		repository.save(customer);
+		customerRepository.save(customer);
 		System.out.println("Customer added successfully!!");
 	}
 	
