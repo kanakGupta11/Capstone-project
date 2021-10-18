@@ -1,11 +1,20 @@
 package com.example.rechargeapp;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+import com.sun.istack.NotNull;
+
+@Entity
 public class Admin {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer adminId;
+	@NotNull
 	private String userName;
-	
+	@NotNull
 	private String password;
 	
 	public Integer getAdminId() {

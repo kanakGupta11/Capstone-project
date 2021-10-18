@@ -1,11 +1,19 @@
 package com.example.rechargeapp;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+import com.sun.istack.NotNull;
 
+@Entity
 public class Plan {
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer planId;
+	@NotNull
 	private int operatorId;
-	
+	@NotNull
 	private int planCost;
 	
 	public Integer getPlanId() {
@@ -39,6 +47,6 @@ public class Plan {
 	public void setPlanDetails(String planDetails) {
 		this.planDetails = planDetails;
 	}
-
+	@NotNull
 	private String planDetails;
 }
