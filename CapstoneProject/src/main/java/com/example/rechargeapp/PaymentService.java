@@ -24,7 +24,7 @@ public class PaymentService {
 		return paymentRepository.findByCustomerId(customer.getCustomerId());
 	}
 	
-	
+	// to be tested urgently
 	public int makePayment(int planId,int customerId) {
 		Plan plan = planRepository.findByPaymentId(planId);
 		int planAmount = plan.getPlanCost();
