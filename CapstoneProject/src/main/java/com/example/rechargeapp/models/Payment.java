@@ -1,4 +1,4 @@
-package com.example.rechargeapp;
+package com.example.rechargeapp.models;
 import java.util.Date;
 
 import javax.persistence.Entity;

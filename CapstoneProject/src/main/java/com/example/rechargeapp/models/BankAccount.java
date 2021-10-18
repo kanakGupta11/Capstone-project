@@ -1,4 +1,4 @@
-package com.example.rechargeapp;
+package com.example.rechargeapp.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

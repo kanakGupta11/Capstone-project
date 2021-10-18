@@ -1,9 +1,12 @@
-package com.example.rechargeapp;
+package com.example.rechargeapp.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.rechargeapp.models.Customer;
+import com.example.rechargeapp.repository.CustomerRepository;
 
 @Service
 public class CustomerService {
