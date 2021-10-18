@@ -15,7 +15,8 @@ public class Plan {
 	private int operatorId;
 	@NotNull
 	private int planCost;
-	
+	@NotNull
+	private String planDetails;
 	public Integer getPlanId() {
 		return planId;
 	}
@@ -47,6 +48,5 @@ public class Plan {
 	public void setPlanDetails(String planDetails) {
 		this.planDetails = planDetails;
 	}
-	@NotNull
-	private String planDetails;
+	
 }
