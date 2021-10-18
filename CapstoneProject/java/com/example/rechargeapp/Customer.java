@@ -37,12 +37,10 @@ public class Customer {
 	@Column(nullable=false)
 	private Date dateOfBirth;
 	
-	@OneToMany
-	List<BankAccount> bankAccounts;
-	
 	private String gender;
 	private Date createdDate;
 	private Date updatedDate;
+	
 	
 	public Integer getCustomerId() {
 		return customerId;
@@ -103,12 +101,5 @@ public class Customer {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public List<BankAccount> getBankAccounts() {
-		return bankAccounts;
-	}
-	public void setBankAccounts(List<BankAccount> bankAccounts) {
-		this.bankAccounts = bankAccounts;
 	}
 }
