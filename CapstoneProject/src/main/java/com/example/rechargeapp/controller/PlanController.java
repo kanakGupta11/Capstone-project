@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.rechargeapp.models.Plan;
 import com.example.rechargeapp.service.PlanService;
 
-@RequestMapping("rechargeApp")
+@RequestMapping("rechargeApp/plans")
 @RestController
 public class PlanController {
 	@Autowired
@@ -25,13 +25,13 @@ public class PlanController {
 		planService.savePlan(plan);
 	}
 	
-	@GetMapping("/customers/getPlans")
+	@GetMapping("/customers/getPlans/{operatorId}")
 	public List<Plan> getAllPlans(){
 		return planService.getPlans();
 	}
-	@GetMapping("/customers/getPlans/{planId}")
-	public Plan getByPlansId(@PathVariable int planId){
-		return planService.getPlanById(planId);
+	@GetMapping("/customers/getPlans/{operatorId}/{planId}")
+	public Plan getByPlansId(@PathVariable int planId,int operatorId){
+		return planService.getPlanById(planId,operatorId);
 	}
 	
 

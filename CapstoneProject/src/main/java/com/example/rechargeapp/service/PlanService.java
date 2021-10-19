@@ -24,7 +24,7 @@ public class PlanService {
 	}
 	
 	//method to get plans by id
-	public Plan getPlanById(int planId){
+	public Plan getPlanById(int planId, int operatorId){
 		return planRepository.findByPlanId(planId);
 	}
 }
