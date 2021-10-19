@@ -9,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
 
 import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
@@ -21,14 +23,16 @@ public class Plan {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer planId;
 	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-	@JoinColumn(name="operator_id")
-	@JsonIgnore
+	@JsonBackReference
+	@JoinColumn(name = "operator_id")
+	// @JsonIgnore
 	private Operator operator;
 
 	@NotNull
 	private int planCost;
 	@NotNull
 	private String planDetails;
+
 	public Operator getOperator() {
 		return operator;
 	}
@@ -36,7 +40,6 @@ public class Plan {
 	public void setOperator(Operator operator) {
 		this.operator = operator;
 	}
-
 
 	public Integer getPlanId() {
 		return planId;

@@ -10,9 +10,10 @@ import com.example.rechargeapp.repository.AdminRepository;
 public class AdminService {
 	@Autowired
 	AdminRepository adminRepository;
+
 	public void saveadmin(Admin admin) {
 		adminRepository.save(admin);
 		System.out.println(admin);
-		}
+	}
 
 }

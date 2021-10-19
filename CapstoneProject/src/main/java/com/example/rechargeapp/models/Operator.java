@@ -11,33 +11,43 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
 
 @Entity
 public class Operator {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer operatorId;
+
 	public Integer getOperatorId() {
 		return operatorId;
 	}
+
 	public void setOperatorId(Integer operatorId) {
 		this.operatorId = operatorId;
 	}
+
 	public String getOperatorName() {
 		return operatorName;
 	}
+
 	public void setOperatorName(String operatorName) {
 		this.operatorName = operatorName;
 	}
+
 	@NotNull
 	private String operatorName;
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-    private List<Plan> planList;
+	@OneToMany(mappedBy = "operator",fetch = FetchType.LAZY, cascade = CascadeType.MERGE) 
+	@JsonManagedReference
+	private List<Plan> planList;
+
 	public List<Plan> getPlanList() {
 		return planList;
 	}
+
 	public void setPlanList(List<Plan> planList) {
 		this.planList = planList;
 	}

@@ -14,19 +14,19 @@ import com.example.rechargeapp.models.Plan;
 import com.example.rechargeapp.service.OperatorService;
 import com.example.rechargeapp.service.PlanService;
 
-@RequestMapping("rechargeApp/operators")
+@RequestMapping("recharge/operators")
 @RestController
 public class OperatorController {
 	@Autowired
 	OperatorService operatorService;
-	
-	@PostMapping("/saveOperator")
+
+	@PostMapping
 	public void operatorSave(@RequestBody Operator operator) {
 		operatorService.saveOperator(operator);
 	}
-	
-	@GetMapping("/getOperator")
-	public List<Operator> getAllOperators(){
+
+	@GetMapping
+	public List<Operator> getAllOperators() {
 		return operatorService.getoperators();
-		}
+	}
 }

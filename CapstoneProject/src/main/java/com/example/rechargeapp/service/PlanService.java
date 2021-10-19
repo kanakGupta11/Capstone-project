@@ -12,21 +12,17 @@ public class PlanService {
 	@Autowired
 	PlanRepository planRepository;
 	
-	//method to save plans
 	public void savePlan(Plan plan) {
 		planRepository.save(plan);
 		System.out.println(plan);
-		}
-	
-	//method to get plans
-	public java.util.List<Plan> getPlans(Integer operatorId){
-		
-		Operator operator = new Operator();
-		operator.setOperatorId(operatorId);
-		return planRepository.findByOperator(operator );
 	}
 	
-	//method to get plans by id
+	public java.util.List<Plan> getPlans(Integer operatorId){
+		Operator operator = new Operator();
+		operator.setOperatorId(operatorId);
+		return planRepository.findByOperator(operator);
+	}
+	
 	public Plan getPlanById(int planId){
 		return planRepository.findByPlanId(planId);
 	}
