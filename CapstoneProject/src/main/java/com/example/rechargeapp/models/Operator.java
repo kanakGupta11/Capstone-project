@@ -33,7 +33,7 @@ public class Operator {
 	}
 	@NotNull
 	private String operatorName;
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     private List<Plan> planList;
 	public List<Plan> getPlanList() {
 		return planList;

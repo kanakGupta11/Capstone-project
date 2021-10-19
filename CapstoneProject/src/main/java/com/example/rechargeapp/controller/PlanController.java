@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.rechargeapp.models.Operator;
 import com.example.rechargeapp.models.Plan;
 import com.example.rechargeapp.service.PlanService;
 
@@ -20,20 +18,20 @@ import com.example.rechargeapp.service.PlanService;
 public class PlanController {
 	@Autowired
 	PlanService planService;
-	
+
 	@PostMapping("/savePlans")
 	public void planSave(@RequestBody Plan plan) {
 		planService.savePlan(plan);
 	}
-	
-	@GetMapping("/customers/getPlans")
-	public List<Plan> getAllPlans(@RequestBody Operator operator){
-		return planService.getPlans(operator);
+
+	@GetMapping("/getPlans/{operatorId}")
+	public List<Plan> getAllPlans(@PathVariable("operatorId") Integer operatorId) {
+		return planService.getPlans(operatorId);
 	}
+
 	@GetMapping("/customers/getPlans/{operatorId}/{planId}")
-	public Plan getByPlansId(@PathVariable int planId){
+	public Plan getByPlansId(@PathVariable int planId) {
 		return planService.getPlanById(planId);
 	}
-	
 
 }

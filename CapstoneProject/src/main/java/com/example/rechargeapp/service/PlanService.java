@@ -19,8 +19,11 @@ public class PlanService {
 		}
 	
 	//method to get plans
-	public java.util.List<Plan> getPlans(Operator operator){
-		return planRepository.findByOperator(operator);
+	public java.util.List<Plan> getPlans(Integer operatorId){
+		
+		Operator operator = new Operator();
+		operator.setOperatorId(operatorId);
+		return planRepository.findByOperator(operator );
 	}
 	
 	//method to get plans by id
