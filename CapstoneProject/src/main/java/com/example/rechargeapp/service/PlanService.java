@@ -4,7 +4,7 @@ package com.example.rechargeapp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.example.rechargeapp.models.Operator;
 import com.example.rechargeapp.models.Plan;
 import com.example.rechargeapp.repository.PlanRepository;
 @Service
@@ -19,12 +19,12 @@ public class PlanService {
 		}
 	
 	//method to get plans
-	public java.util.List<Plan> getPlans(){
-		return planRepository.findAll();
+	public java.util.List<Plan> getPlans(Operator operator){
+		return planRepository.findByOperator(operator);
 	}
 	
 	//method to get plans by id
-	public Plan getPlanById(int planId, int operatorId){
+	public Plan getPlanById(int planId){
 		return planRepository.findByPlanId(planId);
 	}
 }

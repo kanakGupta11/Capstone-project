@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.rechargeapp.models.Operator;
 import com.example.rechargeapp.models.Plan;
 import com.example.rechargeapp.service.PlanService;
 
@@ -25,13 +26,13 @@ public class PlanController {
 		planService.savePlan(plan);
 	}
 	
-	@GetMapping("/customers/getPlans/{operatorId}")
-	public List<Plan> getAllPlans(){
-		return planService.getPlans();
+	@GetMapping("/customers/getPlans")
+	public List<Plan> getAllPlans(@RequestBody Operator operator){
+		return planService.getPlans(operator);
 	}
 	@GetMapping("/customers/getPlans/{operatorId}/{planId}")
-	public Plan getByPlansId(@PathVariable int planId,int operatorId){
-		return planService.getPlanById(planId,operatorId);
+	public Plan getByPlansId(@PathVariable int planId){
+		return planService.getPlanById(planId);
 	}
 	
 

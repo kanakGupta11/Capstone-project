@@ -33,8 +33,8 @@ public class Operator {
 	}
 	@NotNull
 	private String operatorName;
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "operator", cascade = CascadeType.ALL)
-    private List<Plan> planList = new ArrayList<>();
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Plan> planList;
 	public List<Plan> getPlanList() {
 		return planList;
 	}

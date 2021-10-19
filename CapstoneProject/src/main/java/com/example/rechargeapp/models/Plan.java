@@ -17,8 +17,8 @@ public class Plan {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer planId;
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name="operator_Id",referencedColumnName = "operatorId", insertable = true, updatable = true)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name="operator_id")
 	private Operator operator;
 
 	@NotNull
@@ -33,7 +33,6 @@ public class Plan {
 		this.operator = operator;
 	}
 
-	
 
 	public Integer getPlanId() {
 		return planId;
