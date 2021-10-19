@@ -9,4 +9,5 @@ public interface PlanRepository extends JpaRepository<Plan, Integer>{
 
 	Plan findByPlanId(int planId);
 
+
 }
