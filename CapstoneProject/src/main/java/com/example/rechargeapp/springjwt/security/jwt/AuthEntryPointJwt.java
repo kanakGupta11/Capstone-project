@@ -16,7 +16,6 @@ import org.springframework.stereotype.Component;
 
 import com.example.rechargeapp.springjwt.security.jwt.*;
 
-
 @Component
 public class AuthEntryPointJwt implements AuthenticationEntryPoint {
 	private static final Logger logger = LoggerFactory.getLogger(AuthEntryPointJwt.class);
@@ -27,5 +26,5 @@ public class AuthEntryPointJwt implements AuthenticationEntryPoint {
 		logger.error("Unauthorized error: {}", authException.getMessage());
 		response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Error: Unauthorized");
 	}
-	
+
 }

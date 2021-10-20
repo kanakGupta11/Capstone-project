@@ -17,14 +17,12 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.example.rechargeapp.springjwt.security.jwt.*;
-import com.example.rechargeapp.springjwt.security.services.*;
-
+import com.example.rechargeapp.springjwt.security.services.UserDetailsServiceImpl;
 
 public class AuthTokenFilter extends OncePerRequestFilter {
 	@Autowired
 	private JwtUtils jwtUtils;
-	
+
 	@Autowired
 	private UserDetailsServiceImpl userDetailsService;
 
@@ -61,6 +59,5 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
 		return null;
 	}
-	
-	
+
 }

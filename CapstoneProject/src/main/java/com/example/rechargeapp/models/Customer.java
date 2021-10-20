@@ -23,59 +23,53 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table( name = "customers",
-        uniqueConstraints = {
-        		@UniqueConstraint(columnNames="email")
-        })
+@Table(name = "customers", uniqueConstraints = { @UniqueConstraint(columnNames = "email") })
 public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer customerId;
-	
+
 	@NotNull
 	private String firstName;
-	
+
 	@NotNull
 	private String lastName;
-	
+
 	@NotBlank
-	@Size(max=30)
+	@Size(max = 30)
 	private String username;
-	
+
 	@NotNull
-	@Size(max=120)
+	@Size(max = 120)
 	private String password;
-	
+
 	@NotNull
 	private double mobileNumber;
-	
-	
-	@Size(max=50)
+
+	@Size(max = 50)
 	@Email
 	private String email;
-	
+
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dateOfBirth;
-	
+
 	private String gender;
-	
+
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date createdDate;
-	
+
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date updatedDate;
-	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name="user_roles",
-	           joinColumns = @JoinColumn(name="user_id"),
-	           inverseJoinColumns = @JoinColumn(name="role_id"))
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
-	
+
 	public Customer() {
 	}
-	
-	public Customer(String username,String email, String firstName, String lastName, String password, double mobileNumber, String gender,
-			        Date dateOfBirth, Date createdDate, Date updatedDate) {
+
+	public Customer(String username, String email, String firstName, String lastName, String password,
+			double mobileNumber, String gender, Date dateOfBirth, Date createdDate, Date updatedDate) {
 		this.username = username;
 		this.email = email;
 		this.firstName = firstName;
@@ -86,10 +80,9 @@ public class Customer {
 		this.dateOfBirth = dateOfBirth;
 		this.createdDate = createdDate;
 		this.updatedDate = updatedDate;
-		
+
 	}
-	
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -109,66 +102,81 @@ public class Customer {
 	public Integer getCustomerId() {
 		return customerId;
 	}
+
 	public void setCustomerId(Integer customerId) {
 		this.customerId = customerId;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public double getMobileNumber() {
 		return mobileNumber;
 	}
+
 	public void setMobileNumber(double mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+
 	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
+
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+
 	public Date getCreatedDate() {
 		return createdDate;
 	}
+
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
+
 	public Date getUpdatedDate() {
 		return updatedDate;
 	}
+
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	
-	
-	
-	
 }

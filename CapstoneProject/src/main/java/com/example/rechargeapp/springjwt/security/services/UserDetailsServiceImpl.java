@@ -14,7 +14,7 @@ import com.example.rechargeapp.repository.CustomerRepository;
 public class UserDetailsServiceImpl implements UserDetailsService {
 	@Autowired
 	CustomerRepository customerRepository;
-	
+
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -22,5 +22,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 				.orElseThrow(() -> new UsernameNotFoundException("User Not Found with username : " + username));
 		return UserDetailsImpl.build(user);
 	}
-	
+
 }

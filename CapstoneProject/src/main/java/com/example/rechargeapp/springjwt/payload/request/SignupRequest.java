@@ -11,43 +11,43 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class SignupRequest {
 	@NotBlank
-	@Size(min=3, max=30)
+	@Size(min = 3, max = 30)
 	private String username;
-	
+
 	@NotBlank
-	@Size(max=50)
+	@Size(max = 50)
 	@Email
 	private String email;
-	
+
 	@NotBlank
 	private String firstName;
-	
+
 	@NotBlank
 	private String lastName;
-	
+
 	@NotBlank
-	@Size(min=6, max=50)
+	@Size(min = 6, max = 50)
 	private String password;
-	
+
 	@NotBlank
-	@Size(max=11)
+	@Size(max = 11)
 	private double mobileNumber;
-	
+
 	@NotBlank
 	private String gender;
-	
+
 	@NotBlank
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dateOfBirth;
-	
+
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date createdDate;
-	
+
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date updatedDate;
-	
+
 	private Set<String> role;
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -79,7 +79,7 @@ public class SignupRequest {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -135,11 +135,5 @@ public class SignupRequest {
 	public void setUpdatedDate(Date updatedDate) {
 		this.updatedDate = updatedDate;
 	}
-	
-	
-	
-	
-	
-	
 
 }
