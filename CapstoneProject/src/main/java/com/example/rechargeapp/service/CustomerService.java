@@ -12,7 +12,7 @@ import com.example.rechargeapp.repository.CustomerRepository;
 public class CustomerService {
 	@Autowired
 	CustomerRepository customerRepository;
-
+	
 	public void save(Customer customer) {
 		customerRepository.save(customer);
 		System.out.println("Signed Up successfully!!");
@@ -21,4 +21,8 @@ public class CustomerService {
 	public List<Customer> findAllCustomers() {
 		return customerRepository.findAll();
 	}
+	
+	
+	
+
 }
