@@ -4,33 +4,29 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.rechargeapp.models.Operator;
 import com.example.rechargeapp.models.Plan;
+import com.example.rechargeapp.service.OperatorService;
 import com.example.rechargeapp.service.PlanService;
 
-@RequestMapping("recharge/plans")
+@RequestMapping("recharge/operators")
 @RestController
-public class PlanController {
+public class OperatorController {
 	@Autowired
-	PlanService planService;
+	OperatorService operatorService;
 
 	@PostMapping
-	public void planSave(@RequestBody Plan plan) {
-		planService.savePlan(plan);
+	public void operatorSave(@RequestBody Operator operator) {
+		operatorService.saveOperator(operator);
 	}
 
-	@GetMapping("/{operatorId}")
-	public List<Plan> getAllPlans(@PathVariable("operatorId") Integer operatorId) {
-		return planService.getPlans(operatorId);
-	}
-
-	@GetMapping("/{operatorId}/{planId}")
-	public Plan getByPlansId(@PathVariable int planId) {
-		return planService.getPlanById(planId);
+	@GetMapping
+	public List<Operator> getAllOperators() {
+		return operatorService.getoperators();
 	}
 }

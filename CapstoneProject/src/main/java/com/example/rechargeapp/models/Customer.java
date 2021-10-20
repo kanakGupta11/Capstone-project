@@ -29,7 +29,9 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer customerId;
 
+
 	@NotNull
+	@Column(nullable = false)
 	private String firstName;
 
 	@NotNull
@@ -51,6 +53,16 @@ public class Customer {
 	private String email;
 
 	@JsonFormat(pattern = "dd/MM/yyyy")
+	@Column(nullable = false, length = 64)
+	private String password;
+
+	@Column(nullable = false)
+	private double mobileNumber;
+
+	@Column(nullable = false, unique = true, length = 45)
+	private String email;
+
+	@Column(nullable = false)
 	private Date dateOfBirth;
 
 	private String gender;
@@ -60,6 +72,7 @@ public class Customer {
 
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date updatedDate;
+
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
