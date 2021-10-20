@@ -14,7 +14,6 @@ public class CustomerService {
 	@Autowired
 	CustomerRepository customerRepository;
 
-
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
