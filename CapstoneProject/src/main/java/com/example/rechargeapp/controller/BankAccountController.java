@@ -36,7 +36,7 @@ public class BankAccountController {
 		return bankAccountService.getAccount(accountId);
 	}
 	
-	@GetMapping("/{customerId}")
+	@GetMapping("/all/{customerId}")
 	public List<BankAccount> getAllBankAccounts(@PathVariable int customerId) {
 		return bankAccountService.getAllAccounts(customerId);
 	}

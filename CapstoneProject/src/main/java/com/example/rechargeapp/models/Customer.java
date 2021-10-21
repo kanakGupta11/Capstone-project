@@ -69,7 +69,7 @@ public class Customer {
 
 	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
 	@JsonManagedReference
-	private List<BankAccount> bankAccounts;
+	private List<BankAccount> bankAccountList;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -190,11 +190,11 @@ public class Customer {
 	}
 	
 	public List<BankAccount> getBankAccounts() {
-		return bankAccounts;
+		return bankAccountList;
 	}
 
-	public void setBankAccounts(List<BankAccount> bankAccounts) {
-		this.bankAccounts = bankAccounts;
+	public void setBankAccounts(List<BankAccount> bankAccountList) {
+		this.bankAccountList = bankAccountList;
 	}
 
 }
