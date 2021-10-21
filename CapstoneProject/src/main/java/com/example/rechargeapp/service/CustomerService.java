@@ -26,4 +26,20 @@ public class CustomerService {
 		return customerRepository.findAll();
 	}
 
+	public void deleteUser(Integer customerId) {
+		customerRepository.deleteById(customerId);
+	}
+
+	public Customer updateCustomer(Integer id, Customer updatedCustomer) {
+		Customer customer = customerRepository.findByCustomerId(id);
+		String newUsername = updatedCustomer.getUsername();
+		customer.setUsername(updatedCustomer.getUsername());
+		customer.setPassword(updatedCustomer.getPassword());
+		customer.setEmail(updatedCustomer.getEmail());
+		customer.setMobileNumber(updatedCustomer.getMobileNumber());
+		customerRepository.save(customer);
+		return customer;
+
+	}
+
 }

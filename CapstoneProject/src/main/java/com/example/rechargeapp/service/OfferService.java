@@ -42,6 +42,6 @@ public class OfferService {
         updatedOffer.setOfferUpdatedDate(new Date());
         updatedOffer.setOfferDetail(offer.getOfferDetail());
         offerRepository.save(updatedOffer);
-        return "offer updated";
+        return "offer updated successfully!!";
     }
 }
