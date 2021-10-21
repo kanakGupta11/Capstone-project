@@ -6,7 +6,7 @@ import com.example.rechargeapp.models.Offer;
 
 public interface OfferRepository extends JpaRepository < Offer, Integer>{
 
-	Offer findByOfferId(int offerId);
+    Offer findByOfferId(int offerId);
 
-	void deleteByOfferId(int offerId);
+    void deleteByOfferId(int offerId);
 }

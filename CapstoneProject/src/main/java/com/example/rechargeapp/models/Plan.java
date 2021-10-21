@@ -19,50 +19,50 @@ import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 
 @Entity
 public class Plan {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer planId;
-	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-	@JsonBackReference
-	@JoinColumn(name = "operator_id")
-	// @JsonIgnore
-	private Operator operator;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer planId;
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonBackReference
+    @JoinColumn(name = "operator_id")
+    // @JsonIgnore
+    private Operator operator;
 
-	@NotNull
-	private int planCost;
-	@NotNull
-	private String planDetails;
+    @NotNull
+    private int planCost;
+    @NotNull
+    private String planDetails;
 
-	public Operator getOperator() {
-		return operator;
-	}
+    public Operator getOperator() {
+        return operator;
+    }
 
-	public void setOperator(Operator operator) {
-		this.operator = operator;
-	}
+    public void setOperator(Operator operator) {
+        this.operator = operator;
+    }
 
-	public Integer getPlanId() {
-		return planId;
-	}
+    public Integer getPlanId() {
+        return planId;
+    }
 
-	public void setPlanId(Integer planId) {
-		this.planId = planId;
-	}
+    public void setPlanId(Integer planId) {
+        this.planId = planId;
+    }
 
-	public int getPlanCost() {
-		return planCost;
-	}
+    public int getPlanCost() {
+        return planCost;
+    }
 
-	public void setPlanCost(int planCost) {
-		this.planCost = planCost;
-	}
+    public void setPlanCost(int planCost) {
+        this.planCost = planCost;
+    }
 
-	public String getPlanDetails() {
-		return planDetails;
-	}
+    public String getPlanDetails() {
+        return planDetails;
+    }
 
-	public void setPlanDetails(String planDetails) {
-		this.planDetails = planDetails;
-	}
+    public void setPlanDetails(String planDetails) {
+        this.planDetails = planDetails;
+    }
 
 }

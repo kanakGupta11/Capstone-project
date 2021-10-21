@@ -9,21 +9,21 @@ import com.example.rechargeapp.models.Plan;
 import com.example.rechargeapp.repository.PlanRepository;
 @Service
 public class PlanService {
-	@Autowired
-	PlanRepository planRepository;
-	
-	public void savePlan(Plan plan) {
-		planRepository.save(plan);
-		System.out.println(plan);
-	}
-	
-	public java.util.List<Plan> getPlans(Integer operatorId){
-		Operator operator = new Operator();
-		operator.setOperatorId(operatorId);
-		return planRepository.findByOperator(operator);
-	}
-	
-	public Plan getPlanById(int planId){
-		return planRepository.findByPlanId(planId);
-	}
+    @Autowired
+    PlanRepository planRepository;
+    
+    public void savePlan(Plan plan) {
+        planRepository.save(plan);
+        System.out.println(plan);
+    }
+    
+    public java.util.List<Plan> getPlans(Integer operatorId){
+        Operator operator = new Operator();
+        operator.setOperatorId(operatorId);
+        return planRepository.findByOperator(operator);
+    }
+    
+    public Plan getPlanById(int planId){
+        return planRepository.findByPlanId(planId);
+    }
 }

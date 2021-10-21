@@ -12,61 +12,61 @@ import com.sun.istack.NotNull;
 
 @Entity
 public class Offer {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer offerId;
-	@NotNull
-	private String offerDetail;
-	@NotNull
-	@JsonFormat(pattern = "dd/MM/yyyy")
-	private Date offerValidity;
-	private Date offerUpdatedDate;
-	@NotNull
-	@JsonFormat(pattern = "dd/MM/yyyy")
-	private Date offerCreatedDate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer offerId;
+    @NotNull
+    private String offerDetail;
+    @NotNull
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private Date offerValidity;
+    private Date offerUpdatedDate;
+    @NotNull
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private Date offerCreatedDate;
 
-	public Offer() {
-		this.offerCreatedDate = new Date();
-	}
+    public Offer() {
+        this.offerCreatedDate = new Date();
+    }
 
-	public String getOfferDetail() {
-		return offerDetail;
-	}
+    public String getOfferDetail() {
+        return offerDetail;
+    }
 
-	public void setOfferDetail(String offerDetail) {
-		this.offerDetail = offerDetail;
-	}
+    public void setOfferDetail(String offerDetail) {
+        this.offerDetail = offerDetail;
+    }
 
-	public Date getOfferValidity() {
-		return offerValidity;
-	}
+    public Date getOfferValidity() {
+        return offerValidity;
+    }
 
-	public void setOfferValidity(Date offerValidity) {
-		this.offerValidity = offerValidity;
-	}
+    public void setOfferValidity(Date offerValidity) {
+        this.offerValidity = offerValidity;
+    }
 
-	public Date getOfferUpdatedDate() {
-		return offerUpdatedDate;
-	}
+    public Date getOfferUpdatedDate() {
+        return offerUpdatedDate;
+    }
 
-	public void setOfferUpdatedDate(Date offerUpdatedDate) {
-		this.offerUpdatedDate = offerUpdatedDate;
-	}
+    public void setOfferUpdatedDate(Date offerUpdatedDate) {
+        this.offerUpdatedDate = offerUpdatedDate;
+    }
 
-	public Date getOfferCreatedDate() {
-		return offerCreatedDate;
-	}
+    public Date getOfferCreatedDate() {
+        return offerCreatedDate;
+    }
 
-	public void setOfferCreatedDate(Date offerCreatedDate) {
-		this.offerCreatedDate = offerCreatedDate;
-	}
+    public void setOfferCreatedDate(Date offerCreatedDate) {
+        this.offerCreatedDate = offerCreatedDate;
+    }
 
-	public Integer getOfferId() {
-		return offerId;
-	}
+    public Integer getOfferId() {
+        return offerId;
+    }
 
-	public void setOfferId(Integer offerId) {
-		this.offerId = offerId;
-	}
+    public void setOfferId(Integer offerId) {
+        this.offerId = offerId;
+    }
 
 }

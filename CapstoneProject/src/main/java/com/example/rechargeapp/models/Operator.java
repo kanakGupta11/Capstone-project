@@ -18,37 +18,37 @@ import com.sun.istack.NotNull;
 
 @Entity
 public class Operator {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer operatorId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer operatorId;
 
-	public Integer getOperatorId() {
-		return operatorId;
-	}
+    public Integer getOperatorId() {
+        return operatorId;
+    }
 
-	public void setOperatorId(Integer operatorId) {
-		this.operatorId = operatorId;
-	}
+    public void setOperatorId(Integer operatorId) {
+        this.operatorId = operatorId;
+    }
 
-	public String getOperatorName() {
-		return operatorName;
-	}
+    public String getOperatorName() {
+        return operatorName;
+    }
 
-	public void setOperatorName(String operatorName) {
-		this.operatorName = operatorName;
-	}
+    public void setOperatorName(String operatorName) {
+        this.operatorName = operatorName;
+    }
 
-	@NotNull
-	private String operatorName;
-	@OneToMany(mappedBy = "operator",fetch = FetchType.LAZY, cascade = CascadeType.MERGE) 
-	@JsonManagedReference
-	private List<Plan> planList;
+    @NotNull
+    private String operatorName;
+    @OneToMany(mappedBy = "operator",fetch = FetchType.LAZY, cascade = CascadeType.MERGE) 
+    @JsonManagedReference
+    private List<Plan> planList;
 
-	public List<Plan> getPlanList() {
-		return planList;
-	}
+    public List<Plan> getPlanList() {
+        return planList;
+    }
 
-	public void setPlanList(List<Plan> planList) {
-		this.planList = planList;
-	}
+    public void setPlanList(List<Plan> planList) {
+        this.planList = planList;
+    }
 }

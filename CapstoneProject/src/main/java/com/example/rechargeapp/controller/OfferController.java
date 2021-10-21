@@ -19,31 +19,31 @@ import com.example.rechargeapp.service.OfferService;
 @RequestMapping("recharge/offers")
 @RestController
 public class OfferController {
-	@Autowired
-	OfferService offerService;
+    @Autowired
+    OfferService offerService;
 
-	@PostMapping
-	public void offerSave(@RequestBody Offer offer) {
-		offerService.saveOffer(offer);
-	}
+    @PostMapping
+    public void offerSave(@RequestBody Offer offer) {
+        offerService.saveOffer(offer);
+    }
 
-	@GetMapping
-	public List<Offer> offer() {
-		return offerService.getAllOffer();
-	}
+    @GetMapping
+    public List<Offer> offer() {
+        return offerService.getAllOffer();
+    }
 
-	@GetMapping("/{offerId}")
-	public Offer selectOfferById(@PathVariable int offerId) {
-		return offerService.getOfferById(offerId);
-	}
+    @GetMapping("/{offerId}")
+    public Offer selectOfferById(@PathVariable int offerId) {
+        return offerService.getOfferById(offerId);
+    }
 
-	@DeleteMapping("/{offerId}")
-	public String deleteOffer(@PathVariable int offerId) {
-		return offerService.deleteOfferById(offerId);
-	}
+    @DeleteMapping("/{offerId}")
+    public String deleteOffer(@PathVariable int offerId) {
+        return offerService.deleteOfferById(offerId);
+    }
 
-	@PutMapping("{offerId}")
-	public String offerUpdate(@RequestBody Offer offer, @PathVariable int offerId) {
-		return offerService.updateOffer(offer, offerId);
-	}
+    @PutMapping("{offerId}")
+    public String offerUpdate(@RequestBody Offer offer, @PathVariable int offerId) {
+        return offerService.updateOffer(offer, offerId);
+    }
 }

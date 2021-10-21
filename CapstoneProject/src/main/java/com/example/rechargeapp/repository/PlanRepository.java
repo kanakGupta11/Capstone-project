@@ -9,7 +9,7 @@ import com.example.rechargeapp.models.Plan;
 
 public interface PlanRepository extends JpaRepository<Plan, Integer> {
 
-	Plan findByPlanId(int planId);
+    Plan findByPlanId(int planId);
 
-	List<Plan> findByOperator(Operator operator);
+    List<Plan> findByOperator(Operator operator);
 }

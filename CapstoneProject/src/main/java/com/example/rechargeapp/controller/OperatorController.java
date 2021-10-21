@@ -10,23 +10,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.rechargeapp.models.Operator;
-import com.example.rechargeapp.models.Plan;
 import com.example.rechargeapp.service.OperatorService;
-import com.example.rechargeapp.service.PlanService;
 
 @RequestMapping("recharge/operators")
 @RestController
 public class OperatorController {
-	@Autowired
-	OperatorService operatorService;
+    @Autowired
+    OperatorService operatorService;
 
-	@PostMapping
-	public void operatorSave(@RequestBody Operator operator) {
-		operatorService.saveOperator(operator);
-	}
+    @PostMapping
+    public void operatorSave(@RequestBody Operator operator) {
+        operatorService.saveOperator(operator);
+    }
 
-	@GetMapping
-	public List<Operator> getAllOperators() {
-		return operatorService.getoperators();
-	}
+    @GetMapping
+    public List<Operator> getAllOperators() {
+        return operatorService.getoperators();
+    }
 }

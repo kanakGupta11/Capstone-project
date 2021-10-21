@@ -14,34 +14,34 @@ import com.example.rechargeapp.repository.OfferRepository;
 
 @Service
 public class OfferService {
-	@Autowired
-	OfferRepository offerRepository;
+    @Autowired
+    OfferRepository offerRepository;
 
-	public void saveOffer(Offer offer) {
-		offerRepository.save(offer);
-		System.out.println("Offer added successfully!!");
-	}
+    public void saveOffer(Offer offer) {
+        offerRepository.save(offer);
+        System.out.println("Offer added successfully!!");
+    }
 
-	public List<Offer> getAllOffer() {
-		return offerRepository.findAll();
-	}
+    public List<Offer> getAllOffer() {
+        return offerRepository.findAll();
+    }
 
-	public Offer getOfferById(int offerId) {
-		return offerRepository.findByOfferId(offerId);
-	}
+    public Offer getOfferById(int offerId) {
+        return offerRepository.findByOfferId(offerId);
+    }
 
-	@Transactional
-	public String deleteOfferById(int offerId) {
-		offerRepository.deleteByOfferId(offerId);
-		return "offer has been deleted successfully";
-	}
+    @Transactional
+    public String deleteOfferById(int offerId) {
+        offerRepository.deleteByOfferId(offerId);
+        return "offer has been deleted successfully";
+    }
 
-	public String updateOffer(Offer offer, int offerId) {
-		Offer updatedOffer = offerRepository.findByOfferId(offerId);
-		updatedOffer.setOfferValidity(offer.getOfferValidity());
-		updatedOffer.setOfferUpdatedDate(new Date());
-		updatedOffer.setOfferDetail(offer.getOfferDetail());
-		offerRepository.save(updatedOffer);
-		return "offer updated";
-	}
+    public String updateOffer(Offer offer, int offerId) {
+        Offer updatedOffer = offerRepository.findByOfferId(offerId);
+        updatedOffer.setOfferValidity(offer.getOfferValidity());
+        updatedOffer.setOfferUpdatedDate(new Date());
+        updatedOffer.setOfferDetail(offer.getOfferDetail());
+        offerRepository.save(updatedOffer);
+        return "offer updated";
+    }
 }
