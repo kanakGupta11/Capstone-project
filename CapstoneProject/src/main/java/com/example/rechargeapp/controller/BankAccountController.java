@@ -22,7 +22,7 @@ public class BankAccountController {
 	@Autowired
 	BankAccountService bankAccountService;
 	
-	@PostMapping("/user/addAccount")
+	@PostMapping("/user/addaccount")
 	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public String addNewAccount(@RequestBody BankAccount bankAccount) {
 		return bankAccountService.addAccount(bankAccount);
