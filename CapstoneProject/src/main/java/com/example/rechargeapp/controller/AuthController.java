@@ -119,7 +119,7 @@ public class AuthController {
 		}
 		customer.setRoles(roles);
 		customerRepository.save(customer);
-		return ResponseEntity.ok(new MessageResponse("Customer added successfully!!"));
+		return ResponseEntity.ok(new MessageResponse("User added successfully!!"));
 	}
 
 }
