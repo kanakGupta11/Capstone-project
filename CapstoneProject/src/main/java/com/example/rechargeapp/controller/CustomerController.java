@@ -67,22 +67,4 @@ public class CustomerController {
 		customerService.updateCustomer(id, updatedCustomer);
 		return ResponseEntity.ok(new MessageResponse("Customer details updated successfully!!"));
 	}
-	
-	@GetMapping("/user/getPlans/{operatorId}")
-	@PreAuthorize("hasRole('USER')")
-	public List<Plan> getAllPlans(@PathVariable Integer operatorId){
-		return planService.getPlans(operatorId);
-	}
-	
-	@GetMapping("/user/getOffers")
-	@PreAuthorize("hasRole('USER')")
-	public List<Offer> getAllOffers(){
-		return offerService.getAllOffer();
-	}
-	
-	@GetMapping("/user/account/{id}")
-	@PreAuthorize("hasRole('USER')")
-	public List<BankAccount> getAllAccounts(@PathVariable int id){
-		return bankAccountService.getAllAccounts(id);
-	}
 }
