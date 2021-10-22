@@ -40,7 +40,7 @@ public class OfferService {
         Offer updatedOffer = offerRepository.findByOfferId(offerId);
         updatedOffer.setOfferValidity(offer.getOfferValidity());
         updatedOffer.setOfferUpdatedDate(new Date());
-        updatedOffer.setOfferDetail(offer.getOfferDetail());
+        updatedOffer.setOfferAmount(offer.getOfferAmount());
         offerRepository.save(updatedOffer);
         return "offer updated successfully!!";
     }

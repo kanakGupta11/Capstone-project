@@ -1,61 +1,105 @@
 package com.example.rechargeapp.models;
+
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Payment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer paymentId;
-	private Integer customerId;
-	private String customerName;
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JsonBackReference
+	@JoinColumn(name = "customer_id")
+	private Customer customer;
 	private Date dateOfPayment;
-	private Integer planId;
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JsonBackReference
+	@JoinColumn(name = "plan_id")
+	private Plan plan;
+
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JsonBackReference
+	@JoinColumn(name = "offer_id")
+	private Offer offer;
 	
-	public Payment() {
-		
+	private int paymentAmount;
+	
+	public int getPaymentAmount() {
+		return paymentAmount;
 	}
-	
-	public Payment(Integer customerId, String customerName, Integer planId) {
-		this.customerId = customerId;
-		this.customerName = customerName;
-		this.planId = planId;
+
+	public void setPaymentAmount(int paymentAmount) {
+		this.paymentAmount = paymentAmount;
 	}
-	
-	
+
 	public Integer getPaymentId() {
 		return paymentId;
 	}
+
+	public Offer getOffer() {
+		return offer;
+	}
+
+	public void setOffer(Offer offer) {
+		this.offer = offer;
+	}
+
+	public Payment() {
+
+	}
+	
+	public Payment(Customer customer, Plan plan,int paymentAmount) {
+		this.customer = customer;
+		this.dateOfPayment = new Date();
+		this.plan = plan;
+		this.paymentAmount = paymentAmount;
+	}
+
+	public Payment(Customer customer, Plan plan, Offer offer,int paymentAmount) {
+		this.customer = customer;
+		this.dateOfPayment = new Date();
+		this.plan = plan;
+		this.offer = offer;
+		this.paymentAmount = paymentAmount;
+	}
+
 	public void setPaymentId(Integer paymentId) {
 		this.paymentId = paymentId;
 	}
-	
-	public Integer getCustomerId() {
-		return customerId;
+
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
-	public String getCustomerName() {
-		return customerName;
-	}
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
+
 	public Date getDateOfPayment() {
 		return dateOfPayment;
 	}
+
 	public void setDateOfPayment(Date dateOfPayment) {
 		this.dateOfPayment = dateOfPayment;
 	}
-	public Integer getPlanId() {
-		return planId;
+
+	public Plan getPlan() {
+		return plan;
 	}
-	public void setPlanId(Integer planId) {
-		this.planId = planId;
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
 	}
+
 }
