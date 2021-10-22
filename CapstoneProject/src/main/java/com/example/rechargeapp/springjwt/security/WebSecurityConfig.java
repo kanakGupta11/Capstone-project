@@ -54,8 +54,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-				.antMatchers("/rechargeapp/customers/**").permitAll()
-				.antMatchers("/rechargeapp/admin/**").permitAll().anyRequest().authenticated()
+				.antMatchers("/rechargeapp/auth/**").permitAll()
+				.antMatchers("/rechargeapp/v1/**").permitAll().anyRequest().authenticated()
 				.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
 
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);

@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.example.rechargeapp.models.Admin;
 import com.example.rechargeapp.models.Customer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -39,7 +40,7 @@ public class UserDetailsImpl implements UserDetails {
 		return new UserDetailsImpl(user.getCustomerId(), user.getUsername(), user.getEmail(), user.getPassword(),
 				authorities);
 	}
-
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return authorities;
